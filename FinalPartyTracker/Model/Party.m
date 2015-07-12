@@ -42,6 +42,20 @@
     _guests = guests;
     
 }
+
+-(void) setPartyName : (NSString *) partyName{
+    
+    _partyName = partyName;
+}
+-(void) setPartyLocation : (NSString *) partyLocation{
+    
+    _partyLocation = partyLocation;
+}
+-(void) setPartyTime : (NSString *) partyTime {
+    
+    _partyTime = partyTime;
+}
+
 // ........................................ //
 
 - (void) addGuestToParty : (Guest *)guest {

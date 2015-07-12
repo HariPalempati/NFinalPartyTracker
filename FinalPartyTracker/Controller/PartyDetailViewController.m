@@ -7,6 +7,7 @@
 //
 
 #import "PartyDetailViewController.h"
+#import "ListofPartiesTableViewController.h"
 
 @interface PartyDetailViewController ()
 
@@ -17,11 +18,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //NSLog(@"Name of the party is %@", [_party getPartyName]);
+    
+    [self refreshPartyDetails];
+    
+    //[_textName setText: [_party getPartyName]];
 }
 
 -(void) setParty:(Party *)party {
     
+    _party = party;
     self.title = [party getPartyName];
+   // NSLog(@"Name of the party is %@", [_party getPartyName]);
+    //[_textName setText: [party getPartyName]]; // faced error since it is showing null, so i thought there might be the timing problem, where this is calling while at that time view has not been loaded, so, i decided to put this in viewdidload (Problem which we face while doing segues)
+
+}
+
+- (IBAction)saveParty:(id)sender {
+    
+    [_party setPartyName:_textName.text];
+    [_party setPartyLocation:_textLocation.text];
+    [_party setPartyTime:_textTime.text];
+    
+    NSLog(@"Party Created");
+    
+   // ListofPartiesTableViewController * lp = [[ListofPartiesTableViewController alloc]init];
+    
+    [self.navigationController popViewControllerAnimated:YES]; // sends us to the previous viewcontroller which we come from
+}
+
+-(void) refreshPartyDetails {
+    
+    NSLog(@"Name of the party is %@", [_party getPartyName]);
+    [_textName setText: [_party getPartyName]];
+    [_textLocation setText: [_party getPartyLocation]];
+    [_textTime setText: [_party getPartyTime]];
 }
 
 - (void)didReceiveMemoryWarning {

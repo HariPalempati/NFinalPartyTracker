@@ -33,6 +33,8 @@
 
 // Method Declaration with 4 parameters
 - (void)initWithPartyName : (NSString *) partyName WithPartyLocation : (NSString *) partyLocation WithPartyTime : (NSString *) partyTime WithGuests : (NSMutableArray *)guests;
+
+
 // ........................................ //
 
 - (void) addGuestToParty : (Guest *)guest;
@@ -43,5 +45,9 @@
 - (NSString *) getPartyName;
 - (NSString *) getPartyLocation;
 - (NSString *) getPartyTime;
+
+-(void) setPartyName : (NSString *) partyName;
+-(void) setPartyLocation : (NSString *) partyLocation;
+-(void) setPartyTime : (NSString *) partyTime;
 
 @end

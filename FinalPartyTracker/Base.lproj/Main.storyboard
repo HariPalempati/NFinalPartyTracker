@@ -129,6 +129,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10b-va-sQS">
+                                <rect key="frame" x="37" y="249" width="50" height="30"/>
+                                <state key="normal" title="unwind">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-yy-e2I">
                                 <rect key="frame" x="316" y="191" width="30" height="30"/>
                                 <state key="normal" title="Edit">
@@ -154,8 +160,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="DLi-Xd-Dhc">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="aZX-Cb-GfX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="aZX-Cb-GfX">
+                            <connections>
+                                <action selector="saveParty:" destination="iM8-CI-CGT" id="j9t-5w-oOm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labelGuests" destination="Yca-JO-g8I" id="1KA-3x-vxW"/>
+                        <outlet property="textLocation" destination="B9I-X3-lLh" id="BBL-88-PNt"/>
+                        <outlet property="textName" destination="QGy-jm-EDf" id="oIX-Px-a1A"/>
+                        <outlet property="textTime" destination="MBn-ZC-WKe" id="Joj-rc-mYP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoQ-RP-E0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
