@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Tz-EN-iWv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--List of Parties-->
@@ -116,13 +117,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9I-X3-lLh">
-                                <rect key="frame" x="145" y="153" width="207" height="30"/>
+                                <rect key="frame" x="157" y="153" width="207" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CTU-3b-Q85">
                                 <rect key="frame" x="170" y="191" width="94" height="29"/>
                             </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-yy-e2I">
+                                <rect key="frame" x="316" y="191" width="30" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="r5i-LY-REZ" kind="show" id="rIf-VM-QlU"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-JO-g8I">
                                 <rect key="frame" x="279" y="195" width="19" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -138,13 +148,13 @@
                                     <segue destination="4z2-5e-Jvw" kind="unwind" unwindAction="unwindFromPartyDetail:" id="R10-fD-PB6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-yy-e2I">
-                                <rect key="frame" x="316" y="191" width="30" height="30"/>
-                                <state key="normal" title="Edit">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BG-QP-ceS">
+                                <rect key="frame" x="133" y="157" width="22" height="22"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="r5i-LY-REZ" kind="show" id="rIf-VM-QlU"/>
+                                    <segue destination="oEi-zq-d7c" kind="show" id="Kzl-Uw-cuw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -192,8 +202,36 @@
                     <view key="view" contentMode="scaleToFill" id="Lva-7B-Ddo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkC-2G-hy7">
+                                <rect key="frame" x="536" y="64" width="48" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-Jz-paV">
+                                <rect key="frame" x="0.0" y="103" width="600" height="497"/>
+                            </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZV-bv-rw4">
+                                <rect key="frame" x="0.0" y="65" width="528" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OkC-2G-hy7" firstAttribute="top" secondItem="SO3-eF-Hxd" secondAttribute="bottom" constant="19" id="8tG-Od-LLw"/>
+                            <constraint firstItem="dfC-O6-ZHp" firstAttribute="top" secondItem="UIX-Jz-paV" secondAttribute="bottom" id="A2b-eb-sCw"/>
+                            <constraint firstItem="OkC-2G-hy7" firstAttribute="leading" secondItem="HZV-bv-rw4" secondAttribute="trailing" constant="8" id="AGd-HY-uWx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UIX-Jz-paV" secondAttribute="trailing" id="F7A-FF-Lg3"/>
+                            <constraint firstItem="UIX-Jz-paV" firstAttribute="leading" secondItem="Lva-7B-Ddo" secondAttribute="leadingMargin" id="R04-uD-bNI"/>
+                            <constraint firstItem="HZV-bv-rw4" firstAttribute="leading" secondItem="Lva-7B-Ddo" secondAttribute="leading" id="Vki-20-G9g"/>
+                            <constraint firstItem="HZV-bv-rw4" firstAttribute="top" secondItem="SO3-eF-Hxd" secondAttribute="bottom" constant="19" id="doD-Id-vsi"/>
+                            <constraint firstItem="OkC-2G-hy7" firstAttribute="top" secondItem="SO3-eF-Hxd" secondAttribute="bottom" id="e8v-Z3-pFA"/>
+                            <constraint firstItem="HZV-bv-rw4" firstAttribute="top" secondItem="SO3-eF-Hxd" secondAttribute="bottom" id="wtM-S6-lrU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="hkX-X8-jhC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5B-9a-Myq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,7 +299,30 @@
                     <view key="view" contentMode="scaleToFill" id="spF-un-IJi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSl-j6-3Cz">
+                                <rect key="frame" x="0.0" y="562" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Yahoo" id="2IJ-Xn-SSP">
+                                        <connections>
+                                            <segue destination="tMT-iw-RUB" kind="show" identifier="yahooSearch" id="oWh-4Q-c4a"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pne-ig-ero"/>
+                                    <barButtonItem title="Google" id="KrH-bL-q5g">
+                                        <connections>
+                                            <segue destination="tMT-iw-RUB" kind="show" identifier="googleSearch" id="5nf-jE-V9Z"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OSl-j6-3Cz" secondAttribute="trailing" id="Cq0-M0-Ovj"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="OSl-j6-3Cz" secondAttribute="bottom" id="UvU-Tr-YHm"/>
+                            <constraint firstItem="OSl-j6-3Cz" firstAttribute="leading" secondItem="spF-un-IJi" secondAttribute="leadingMargin" id="z7O-YK-ArX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="vda-ad-diV"/>
                 </viewController>
@@ -290,7 +351,7 @@
         <!--Web Search-->
         <scene sceneID="tBD-Bf-wWj">
             <objects>
-                <viewController title="Web Search" id="tMT-iw-RUB" sceneMemberID="viewController">
+                <viewController title="Web Search" id="tMT-iw-RUB" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fGT-99-zTs"/>
                         <viewControllerLayoutGuide type="bottom" id="0Q7-Uh-Fl7"/>
@@ -298,8 +359,23 @@
                     <view key="view" contentMode="scaleToFill" id="H7a-Lk-yH4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyj-hh-g1J">
+                                <rect key="frame" x="0.0" y="28" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eyj-hh-g1J" secondAttribute="trailing" id="EI3-lA-Yvv"/>
+                            <constraint firstItem="eyj-hh-g1J" firstAttribute="top" secondItem="fGT-99-zTs" secondAttribute="bottom" constant="8" id="TLV-WF-UeT"/>
+                            <constraint firstAttribute="bottom" secondItem="eyj-hh-g1J" secondAttribute="bottom" id="ddZ-m1-qdX"/>
+                            <constraint firstItem="eyj-hh-g1J" firstAttribute="leading" secondItem="H7a-Lk-yH4" secondAttribute="leading" id="whn-3E-WZh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="eyj-hh-g1J" id="KYM-xq-oAq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSA-B8-MUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -325,6 +401,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5nf-jE-V9Z"/>
         <segue reference="mu2-RV-ODj"/>
     </inferredMetricsTieBreakers>
 </document>

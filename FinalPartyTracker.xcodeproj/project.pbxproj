@@ -20,6 +20,9 @@
 		F1375F5E1B4B912F0030BC3E /* ListofGuestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1375F5D1B4B912F0030BC3E /* ListofGuestsTableViewController.m */; };
 		F1375F611B4B91B80030BC3E /* PartyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1375F601B4B91B80030BC3E /* PartyDetailViewController.m */; };
 		F1375F641B4B91E70030BC3E /* GuestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1375F631B4B91E70030BC3E /* GuestDetailViewController.m */; };
+		F153F76A1B5315A8002413C1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7691B5315A8002413C1 /* WebViewController.m */; };
+		F153F76C1B531F7B002413C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F76B1B531F7B002413C1 /* CoreLocation.framework */; };
+		F153F76E1B531F83002413C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F76D1B531F83002413C1 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,10 @@
 		F1375F601B4B91B80030BC3E /* PartyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PartyDetailViewController.m; path = Controller/PartyDetailViewController.m; sourceTree = "<group>"; };
 		F1375F621B4B91E70030BC3E /* GuestDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuestDetailViewController.h; path = Controller/GuestDetailViewController.h; sourceTree = "<group>"; };
 		F1375F631B4B91E70030BC3E /* GuestDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuestDetailViewController.m; path = Controller/GuestDetailViewController.m; sourceTree = "<group>"; };
+		F153F7681B5315A8002413C1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
+		F153F7691B5315A8002413C1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
+		F153F76B1B531F7B002413C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F153F76D1B531F83002413C1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F153F76E1B531F83002413C1 /* MapKit.framework in Frameworks */,
+				F153F76C1B531F7B002413C1 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,8 @@
 		F1375F1E1B4B73230030BC3E = {
 			isa = PBXGroup;
 			children = (
+				F153F76D1B531F83002413C1 /* MapKit.framework */,
+				F153F76B1B531F7B002413C1 /* CoreLocation.framework */,
 				F1375F291B4B73240030BC3E /* FinalPartyTracker */,
 				F1375F431B4B73240030BC3E /* FinalPartyTrackerTests */,
 				F1375F281B4B73240030BC3E /* Products */,
@@ -158,6 +169,8 @@
 				F1375F601B4B91B80030BC3E /* PartyDetailViewController.m */,
 				F1375F621B4B91E70030BC3E /* GuestDetailViewController.h */,
 				F1375F631B4B91E70030BC3E /* GuestDetailViewController.m */,
+				F153F7681B5315A8002413C1 /* WebViewController.h */,
+				F153F7691B5315A8002413C1 /* WebViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -274,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1375F611B4B91B80030BC3E /* PartyDetailViewController.m in Sources */,
+				F153F76A1B5315A8002413C1 /* WebViewController.m in Sources */,
 				F1375F331B4B73240030BC3E /* ViewController.m in Sources */,
 				F1375F641B4B91E70030BC3E /* GuestDetailViewController.m in Sources */,
 				F1375F581B4B74750030BC3E /* Guest.m in Sources */,
