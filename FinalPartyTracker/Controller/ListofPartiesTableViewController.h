@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) NSMutableArray * parties;
 
+-(IBAction)unwindFromPartyDetail:(UIStoryboardSegue*)segue;
+
 @end
