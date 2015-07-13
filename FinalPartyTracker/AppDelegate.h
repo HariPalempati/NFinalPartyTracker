@@ -15,3 +15,13 @@
 
 @end
 
+
+// Event kit interacts with calender
+// The Address Book framework provides access to the contact information
+// The Address Book UI framework provides the user interface to display the information
+
+// Ask about
+//  pin
+//  #what are the uses of other properties and methods
+//  [self presentViewController:picker animated:YES completion:nil];
+//  LOT OF WARNINGS

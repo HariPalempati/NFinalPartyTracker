@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Party.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <Social/Social.h> // Interacts with Facebook and Twitter
+#import <EventKit/EventKit.h> // Interacts with Calender
+#import <EventKitUI/EventKitUI.h>
+#import <MessageUI/MessageUI.h> // Interacts with Email and Sms
+
 
 @interface PartyDetailViewController : UIViewController
 

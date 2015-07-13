@@ -26,6 +26,12 @@
 		F153F7711B532403002413C1 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7701B532403002413C1 /* LocationViewController.m */; };
 		F153F7741B5347A4002413C1 /* PicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7731B5347A4002413C1 /* PicturesViewController.m */; };
 		F153F7761B534897002413C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7751B534897002413C1 /* AVFoundation.framework */; };
+		F153F7781B543AC8002413C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7771B543AC8002413C1 /* Social.framework */; };
+		F153F77A1B543AD3002413C1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7791B543AD3002413C1 /* AddressBook.framework */; };
+		F153F77C1B543B44002413C1 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77B1B543B44002413C1 /* AddressBookUI.framework */; };
+		F153F77E1B543B69002413C1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77D1B543B69002413C1 /* MessageUI.framework */; };
+		F153F7811B543B7C002413C1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77F1B543B7C002413C1 /* EventKit.framework */; };
+		F153F7821B543B7C002413C1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7801B543B7C002413C1 /* EventKitUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,12 @@
 		F153F7721B5347A4002413C1 /* PicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PicturesViewController.h; path = Controller/PicturesViewController.h; sourceTree = "<group>"; };
 		F153F7731B5347A4002413C1 /* PicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PicturesViewController.m; path = Controller/PicturesViewController.m; sourceTree = "<group>"; };
 		F153F7751B534897002413C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F153F7771B543AC8002413C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F153F7791B543AD3002413C1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F153F77B1B543B44002413C1 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F153F77D1B543B69002413C1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F153F77F1B543B7C002413C1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		F153F7801B543B7C002413C1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F153F7811B543B7C002413C1 /* EventKit.framework in Frameworks */,
+				F153F7821B543B7C002413C1 /* EventKitUI.framework in Frameworks */,
+				F153F77E1B543B69002413C1 /* MessageUI.framework in Frameworks */,
+				F153F77C1B543B44002413C1 /* AddressBookUI.framework in Frameworks */,
+				F153F77A1B543AD3002413C1 /* AddressBook.framework in Frameworks */,
+				F153F7781B543AC8002413C1 /* Social.framework in Frameworks */,
 				F153F7761B534897002413C1 /* AVFoundation.framework in Frameworks */,
 				F153F76E1B531F83002413C1 /* MapKit.framework in Frameworks */,
 				F153F76C1B531F7B002413C1 /* CoreLocation.framework in Frameworks */,
@@ -99,6 +117,12 @@
 		F1375F1E1B4B73230030BC3E = {
 			isa = PBXGroup;
 			children = (
+				F153F77F1B543B7C002413C1 /* EventKit.framework */,
+				F153F7801B543B7C002413C1 /* EventKitUI.framework */,
+				F153F77D1B543B69002413C1 /* MessageUI.framework */,
+				F153F77B1B543B44002413C1 /* AddressBookUI.framework */,
+				F153F7791B543AD3002413C1 /* AddressBook.framework */,
+				F153F7771B543AC8002413C1 /* Social.framework */,
 				F153F7751B534897002413C1 /* AVFoundation.framework */,
 				F153F76D1B531F83002413C1 /* MapKit.framework */,
 				F153F76B1B531F7B002413C1 /* CoreLocation.framework */,
