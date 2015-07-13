@@ -34,8 +34,9 @@
 - (IBAction)sendSms:(id)sender;
 - (IBAction)pickAGuest:(id)sender;
 - (IBAction)createACalenderEvent:(id)sender;
-- (IBAction)sendEmail:(id)sender;
 - (IBAction)postToFacebook:(id)sender;
 - (IBAction)postToTwitter:(id)sender;
+- (IBAction)sendEmail:(id)sender;
+
 
 @end

@@ -61,39 +61,40 @@
 }
 
 - (IBAction)sendSms:(id)sender {
+    
+ 
 }
 
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    
-}
 - (IBAction)pickAGuest:(id)sender {
 }
 
 - (IBAction)createACalenderEvent:(id)sender {
 }
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0) {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)postToFacebook:(id)sender {
+}
+
+- (IBAction)postToTwitter:(id)sender {
 }
 
 // MFMailComposeViewController is used to send to emails
 - (IBAction)sendEmail:(id)sender {
     
-    if (MFMailComposeViewController canSendMail) {
+    if([MFMailComposeViewController canSendMail]) {
         
         MFMailComposeViewController * vc = [[MFMailComposeViewController alloc]init];
-        
+    
         [self presentViewController:vc animated:YES completion:nil]; // Displays Email
     }
 }
 
-
-
-- (IBAction)postToFacebook:(id)sender {
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    
 }
 
-- (IBAction)postToTwitter:(id)sender {
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0) {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) refreshPartyDetails {
