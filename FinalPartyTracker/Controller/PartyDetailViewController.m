@@ -48,6 +48,18 @@
     [self.navigationController popViewControllerAnimated:YES]; // sends us to the previous viewcontroller which we come from
 }
 
+- (IBAction)userDidLongPress:(id)sender {
+    
+    NSLog(@"Long Press Clicked"); 
+}
+
+- (IBAction)userSwipedLeft:(id)sender {
+    
+    NSLog(@"Swipped Left");
+    
+    [self performSegueWithIdentifier:@"showGuestList" sender:self]; // when swipped left it navigates to guestlist viewcontroller
+}
+
 -(void) refreshPartyDetails {
     
     NSLog(@"Name of the party is %@", [_party getPartyName]);

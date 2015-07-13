@@ -23,6 +23,9 @@
 		F153F76A1B5315A8002413C1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7691B5315A8002413C1 /* WebViewController.m */; };
 		F153F76C1B531F7B002413C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F76B1B531F7B002413C1 /* CoreLocation.framework */; };
 		F153F76E1B531F83002413C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F76D1B531F83002413C1 /* MapKit.framework */; };
+		F153F7711B532403002413C1 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7701B532403002413C1 /* LocationViewController.m */; };
+		F153F7741B5347A4002413C1 /* PicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F7731B5347A4002413C1 /* PicturesViewController.m */; };
+		F153F7761B534897002413C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7751B534897002413C1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,11 @@
 		F153F7691B5315A8002413C1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
 		F153F76B1B531F7B002413C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F153F76D1B531F83002413C1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F153F76F1B532403002413C1 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationViewController.h; path = Controller/LocationViewController.h; sourceTree = "<group>"; };
+		F153F7701B532403002413C1 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationViewController.m; path = Controller/LocationViewController.m; sourceTree = "<group>"; };
+		F153F7721B5347A4002413C1 /* PicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PicturesViewController.h; path = Controller/PicturesViewController.h; sourceTree = "<group>"; };
+		F153F7731B5347A4002413C1 /* PicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PicturesViewController.m; path = Controller/PicturesViewController.m; sourceTree = "<group>"; };
+		F153F7751B534897002413C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F153F7761B534897002413C1 /* AVFoundation.framework in Frameworks */,
 				F153F76E1B531F83002413C1 /* MapKit.framework in Frameworks */,
 				F153F76C1B531F7B002413C1 /* CoreLocation.framework in Frameworks */,
 			);
@@ -90,6 +99,7 @@
 		F1375F1E1B4B73230030BC3E = {
 			isa = PBXGroup;
 			children = (
+				F153F7751B534897002413C1 /* AVFoundation.framework */,
 				F153F76D1B531F83002413C1 /* MapKit.framework */,
 				F153F76B1B531F7B002413C1 /* CoreLocation.framework */,
 				F1375F291B4B73240030BC3E /* FinalPartyTracker */,
@@ -171,6 +181,10 @@
 				F1375F631B4B91E70030BC3E /* GuestDetailViewController.m */,
 				F153F7681B5315A8002413C1 /* WebViewController.h */,
 				F153F7691B5315A8002413C1 /* WebViewController.m */,
+				F153F76F1B532403002413C1 /* LocationViewController.h */,
+				F153F7701B532403002413C1 /* LocationViewController.m */,
+				F153F7721B5347A4002413C1 /* PicturesViewController.h */,
+				F153F7731B5347A4002413C1 /* PicturesViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -289,11 +303,13 @@
 				F1375F611B4B91B80030BC3E /* PartyDetailViewController.m in Sources */,
 				F153F76A1B5315A8002413C1 /* WebViewController.m in Sources */,
 				F1375F331B4B73240030BC3E /* ViewController.m in Sources */,
+				F153F7711B532403002413C1 /* LocationViewController.m in Sources */,
 				F1375F641B4B91E70030BC3E /* GuestDetailViewController.m in Sources */,
 				F1375F581B4B74750030BC3E /* Guest.m in Sources */,
 				F1375F5E1B4B912F0030BC3E /* ListofGuestsTableViewController.m in Sources */,
 				F1375F301B4B73240030BC3E /* AppDelegate.m in Sources */,
 				F1375F551B4B743E0030BC3E /* Party.m in Sources */,
+				F153F7741B5347A4002413C1 /* PicturesViewController.m in Sources */,
 				F1375F2D1B4B73240030BC3E /* main.m in Sources */,
 				F1375F5B1B4B90EB0030BC3E /* ListofPartiesTableViewController.m in Sources */,
 			);

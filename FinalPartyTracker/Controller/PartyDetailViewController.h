@@ -16,7 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *textTime;
 @property (weak, nonatomic) IBOutlet UITextField *textLocation;
 @property (weak, nonatomic) IBOutlet UILabel *labelGuests;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *guestureSwipeLeft;
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *guestureLongPress;
 
 -(void) setParty:(Party *)party;
 - (IBAction)saveParty:(id)sender;
+- (IBAction)userDidLongPress:(id)sender;
+- (IBAction)userSwipedLeft:(id)sender;
 @end
