@@ -60,6 +60,27 @@
     [self performSegueWithIdentifier:@"showGuestList" sender:self]; // when swipped left it navigates to guestlist viewcontroller
 }
 
+- (IBAction)sendSms:(id)sender {
+}
+
+- (IBAction)pickAGuest:(id)sender {
+}
+
+- (IBAction)createACalenderEvent:(id)sender {
+}
+
+// MFMailComposeViewController is used to send to emails
+- (IBAction)sendEmail:(id)sender {
+    
+    
+}
+
+- (IBAction)postToFacebook:(id)sender {
+}
+
+- (IBAction)postToTwitter:(id)sender {
+}
+
 -(void) refreshPartyDetails {
     
     NSLog(@"Name of the party is %@", [_party getPartyName]);

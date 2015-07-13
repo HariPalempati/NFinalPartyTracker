@@ -16,7 +16,7 @@
 #import <MessageUI/MessageUI.h> // Interacts with Email and Sms
 
 
-@interface PartyDetailViewController : UIViewController
+@interface PartyDetailViewController : UIViewController <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic, retain) Party * party;
 @property (weak, nonatomic) IBOutlet UITextField *textName;
@@ -30,4 +30,12 @@
 - (IBAction)saveParty:(id)sender;
 - (IBAction)userDidLongPress:(id)sender;
 - (IBAction)userSwipedLeft:(id)sender;
+
+- (IBAction)sendSms:(id)sender;
+- (IBAction)pickAGuest:(id)sender;
+- (IBAction)createACalenderEvent:(id)sender;
+- (IBAction)sendEmail:(id)sender;
+- (IBAction)postToFacebook:(id)sender;
+- (IBAction)postToTwitter:(id)sender;
+
 @end
