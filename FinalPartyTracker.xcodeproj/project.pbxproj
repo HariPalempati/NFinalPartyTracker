@@ -32,6 +32,7 @@
 		F153F77E1B543B69002413C1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77D1B543B69002413C1 /* MessageUI.framework */; };
 		F153F7811B543B7C002413C1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77F1B543B7C002413C1 /* EventKit.framework */; };
 		F153F7821B543B7C002413C1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7801B543B7C002413C1 /* EventKitUI.framework */; };
+		F153F7841B546C7C002413C1 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7831B546C7C002413C1 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		F153F77D1B543B69002413C1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F153F77F1B543B7C002413C1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		F153F7801B543B7C002413C1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		F153F7831B546C7C002413C1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			files = (
 				F153F7811B543B7C002413C1 /* EventKit.framework in Frameworks */,
 				F153F7821B543B7C002413C1 /* EventKitUI.framework in Frameworks */,
+				F153F7841B546C7C002413C1 /* FBSDKShareKit.framework in Frameworks */,
 				F153F77E1B543B69002413C1 /* MessageUI.framework in Frameworks */,
 				F153F77C1B543B44002413C1 /* AddressBookUI.framework in Frameworks */,
 				F153F77A1B543AD3002413C1 /* AddressBook.framework in Frameworks */,
@@ -117,15 +120,6 @@
 		F1375F1E1B4B73230030BC3E = {
 			isa = PBXGroup;
 			children = (
-				F153F77F1B543B7C002413C1 /* EventKit.framework */,
-				F153F7801B543B7C002413C1 /* EventKitUI.framework */,
-				F153F77D1B543B69002413C1 /* MessageUI.framework */,
-				F153F77B1B543B44002413C1 /* AddressBookUI.framework */,
-				F153F7791B543AD3002413C1 /* AddressBook.framework */,
-				F153F7771B543AC8002413C1 /* Social.framework */,
-				F153F7751B534897002413C1 /* AVFoundation.framework */,
-				F153F76D1B531F83002413C1 /* MapKit.framework */,
-				F153F76B1B531F7B002413C1 /* CoreLocation.framework */,
 				F1375F291B4B73240030BC3E /* FinalPartyTracker */,
 				F1375F431B4B73240030BC3E /* FinalPartyTrackerTests */,
 				F1375F281B4B73240030BC3E /* Products */,
@@ -152,6 +146,7 @@
 				F1375F371B4B73240030BC3E /* Images.xcassets */,
 				F1375F391B4B73240030BC3E /* LaunchScreen.xib */,
 				F1375F2A1B4B73240030BC3E /* Supporting Files */,
+				F153F7851B546D3C002413C1 /* Frameworks */,
 			);
 			path = FinalPartyTracker;
 			sourceTree = "<group>";
@@ -222,6 +217,24 @@
 				F1375F571B4B74750030BC3E /* Guest.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F153F7851B546D3C002413C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F153F77F1B543B7C002413C1 /* EventKit.framework */,
+				F153F7801B543B7C002413C1 /* EventKitUI.framework */,
+				F153F77D1B543B69002413C1 /* MessageUI.framework */,
+				F153F77B1B543B44002413C1 /* AddressBookUI.framework */,
+				F153F7791B543AD3002413C1 /* AddressBook.framework */,
+				F153F7771B543AC8002413C1 /* Social.framework */,
+				F153F7751B534897002413C1 /* AVFoundation.framework */,
+				F153F76D1B531F83002413C1 /* MapKit.framework */,
+				F153F76B1B531F7B002413C1 /* CoreLocation.framework */,
+				F153F7831B546C7C002413C1 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +476,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Swathi/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = FinalPartyTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,6 +490,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Swathi/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = FinalPartyTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

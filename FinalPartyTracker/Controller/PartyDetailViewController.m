@@ -60,42 +60,116 @@
     [self performSegueWithIdentifier:@"showGuestList" sender:self]; // when swipped left it navigates to guestlist viewcontroller
 }
 
+// sending SMS and using its delegate protocols methods
 - (IBAction)sendSms:(id)sender {
     
- 
-}
-
-- (IBAction)pickAGuest:(id)sender {
-}
-
-- (IBAction)createACalenderEvent:(id)sender {
-}
-
-- (IBAction)postToFacebook:(id)sender {
-}
-
-- (IBAction)postToTwitter:(id)sender {
-}
-
-// MFMailComposeViewController is used to send to emails
-- (IBAction)sendEmail:(id)sender {
-    
-    if([MFMailComposeViewController canSendMail]) {
+    if([MFMessageComposeViewController canSendText]) {
         
-        MFMailComposeViewController * vc = [[MFMailComposeViewController alloc]init];
-    
-        [self presentViewController:vc animated:YES completion:nil]; // Displays Email
+        MFMessageComposeViewController * vc = [[MFMessageComposeViewController alloc]init];
+        
+        vc.subject = @"This is Subject";
+        vc.body = @"This is Body";
+        
+       // NSLog(@"cansendText value is %@", canSendText ? TRUE:FALSE);
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    else {
+        
+        NSLog(@"Simulator doesn't support this");
     }
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// sending Email and using its delegate protocols methods
+- (IBAction)sendEmail:(id)sender {
+    // MFMailComposeViewController is used to send to emails
+    if([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController * vc = [[MFMailComposeViewController alloc]init];
+        
+        [self presentViewController:vc animated:YES completion:nil]; // Displays Email
+    }
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0) {
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+// Picking a Guest from Address Book by authorization conditions and using delegate protocols methods
+- (IBAction)pickAGuest:(id)sender {
+    
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusDenied ||
+        ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusRestricted) {
+        
+        NSLog(@"AddressBook permission Access Denied");
+    }
+    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+        
+        NSLog(@"AddressBook permission Access Authorized");
+    }
+
+    ABPeoplePickerNavigationController * vc = [[ABPeoplePickerNavigationController alloc]init];
+    
+    
+    // we tell peoplepicker that this view controller has the protocol methods and this will receive events
+    vc.peoplePickerDelegate = self;
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+// Called after a person has been selected by the user.
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person NS_AVAILABLE_IOS(8_0) {
+    
+}
+
+// Called after the user has pressed cancel.
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)createACalenderEvent:(id)sender {
+}
+
+- (IBAction)postToFacebook:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController * vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [vc setInitialText:@"I post to Facebook from my App"];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    else {
+        
+        NSLog(@"This cannot post to Facebook");
+    }
+}
+
+- (IBAction)postToTwitter:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        
+        SLComposeViewController * vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [vc setInitialText:@"I post to Twitter from my App"];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    else {
+        
+        NSLog(@"This cannot post to Twitter");
+    }
+}
+
+
 
 -(void) refreshPartyDetails {
     

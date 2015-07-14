@@ -14,6 +14,7 @@
 #import <EventKit/EventKit.h> // Interacts with Calender
 #import <EventKitUI/EventKitUI.h>
 #import <MessageUI/MessageUI.h> // Interacts with Email and Sms
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 
 @interface PartyDetailViewController : UIViewController <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
