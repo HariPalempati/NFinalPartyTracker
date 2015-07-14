@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ManagedGuest" representedClassName="ManagedGuest" syncable="YES">
+        <attribute name="guestAge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="guestName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="party" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedParty" inverseName="guests" inverseEntity="ManagedParty" syncable="YES"/>
+    </entity>
+    <entity name="ManagedParty" representedClassName="ManagedParty" syncable="YES">
+        <attribute name="partyLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partyTime" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="guests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedGuest" inverseName="party" inverseEntity="ManagedGuest" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ManagedParty" positionX="-405" positionY="11" width="128" height="103"/>
+        <element name="ManagedGuest" positionX="-54" positionY="-9" width="128" height="88"/>
+    </elements>
+</model>

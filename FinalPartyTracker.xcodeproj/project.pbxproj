@@ -33,6 +33,9 @@
 		F153F7811B543B7C002413C1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F77F1B543B7C002413C1 /* EventKit.framework */; };
 		F153F7821B543B7C002413C1 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7801B543B7C002413C1 /* EventKitUI.framework */; };
 		F153F7841B546C7C002413C1 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F153F7831B546C7C002413C1 /* FBSDKShareKit.framework */; };
+		F153F7881B55BFD2002413C1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F153F7861B55BFD2002413C1 /* CoreDataModel.xcdatamodeld */; };
+		F153F78B1B55C26A002413C1 /* ManagedParty.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F78A1B55C26A002413C1 /* ManagedParty.m */; };
+		F153F78E1B55C2D3002413C1 /* ManagedGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = F153F78D1B55C2D3002413C1 /* ManagedGuest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,11 @@
 		F153F77F1B543B7C002413C1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		F153F7801B543B7C002413C1 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		F153F7831B546C7C002413C1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F153F7871B55BFD2002413C1 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		F153F7891B55C26A002413C1 /* ManagedParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedParty.h; path = Model/ManagedParty.h; sourceTree = "<group>"; };
+		F153F78A1B55C26A002413C1 /* ManagedParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedParty.m; path = Model/ManagedParty.m; sourceTree = "<group>"; };
+		F153F78C1B55C2D3002413C1 /* ManagedGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagedGuest.h; path = Model/ManagedGuest.h; sourceTree = "<group>"; };
+		F153F78D1B55C2D3002413C1 /* ManagedGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagedGuest.m; path = Model/ManagedGuest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +223,11 @@
 				F1375F541B4B743E0030BC3E /* Party.m */,
 				F1375F561B4B74750030BC3E /* Guest.h */,
 				F1375F571B4B74750030BC3E /* Guest.m */,
+				F153F7861B55BFD2002413C1 /* CoreDataModel.xcdatamodeld */,
+				F153F7891B55C26A002413C1 /* ManagedParty.h */,
+				F153F78A1B55C26A002413C1 /* ManagedParty.m */,
+				F153F78C1B55C2D3002413C1 /* ManagedGuest.h */,
+				F153F78D1B55C2D3002413C1 /* ManagedGuest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,9 +350,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F153F78B1B55C26A002413C1 /* ManagedParty.m in Sources */,
 				F1375F611B4B91B80030BC3E /* PartyDetailViewController.m in Sources */,
 				F153F76A1B5315A8002413C1 /* WebViewController.m in Sources */,
 				F1375F331B4B73240030BC3E /* ViewController.m in Sources */,
+				F153F78E1B55C2D3002413C1 /* ManagedGuest.m in Sources */,
+				F153F7881B55BFD2002413C1 /* CoreDataModel.xcdatamodeld in Sources */,
 				F153F7711B532403002413C1 /* LocationViewController.m in Sources */,
 				F1375F641B4B91E70030BC3E /* GuestDetailViewController.m in Sources */,
 				F1375F581B4B74750030BC3E /* Guest.m in Sources */,
@@ -565,6 +581,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F153F7861B55BFD2002413C1 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F153F7871B55BFD2002413C1 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = F153F7871B55BFD2002413C1 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F1375F1F1B4B73230030BC3E /* Project object */;
 }

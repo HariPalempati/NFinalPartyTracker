@@ -34,4 +34,60 @@
 }
 */
 
+
+//// saving data to file and loading from file
+//- (IBAction)loadFromFile:(id)sender {
+//    
+//    NSFileManager * fileManager = [NSFileManager new];
+//    
+//    NSError * error;
+//    
+//    NSURL * docURL = [fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+//    
+//    NSURL * myFolder = [docURL URLByAppendingPathComponent:@"Guests"];
+//    
+//    NSString * stringFromFileAtURL = [[NSString alloc]initWithContentsOfURL:[myFolder URLByAppendingPathComponent:@"guest1.txt"] encoding:NSUTF8StringEncoding error:&error];
+//    
+//    [_textName setText:stringFromFileAtURL];
+//    
+//    NSLog(@"loading from file successfull");
+//}
+//
+//- (IBAction)saveToFile:(id)sender {
+//    
+//    NSFileManager * fileManager = [NSFileManager new];
+//    
+//    NSError * error; // placeholder to hold error
+//    
+//    NSURL * docURL = [fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
+//    
+//    NSURL * myFolder = [docURL URLByAppendingPathComponent:@"Guests"];
+//    
+//    BOOL isDirectory;
+//    
+//    if ([fileManager fileExistsAtPath:[myFolder path] isDirectory:&isDirectory] && isDirectory) {
+//        
+//        NSLog(@"Directory already exists");
+//    }
+//    else {
+//        
+//        NSLog(@"Directory Doesm't exists, Please create it");
+//        
+//        //Creating Directory
+//        [fileManager createDirectoryAtURL:myFolder withIntermediateDirectories:YES attributes:nil error:nil];
+//    }
+//    
+//    
+////    BOOL ok = [_textName.text writeToURL:myFolder atomically:YES encoding:NSUTF8StringEncoding error:&error]; // this is saving to folder
+//
+//    NSLog(@"Directory Created");
+//    BOOL ok = [_textName.text writeToURL:[myFolder URLByAppendingPathComponent:@"guest1.txt"] atomically:YES encoding:NSUTF8StringEncoding error:&error]; // this is saving to file
+//    
+//    if (ok) {
+//        NSLog(@"Writing to file successfull");
+//    }
+//    else {
+//        NSLog(@"Writing to file failed");
+//    }
+//}
 @end

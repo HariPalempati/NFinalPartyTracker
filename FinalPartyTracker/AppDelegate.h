@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+// This is coredata which contains all our managed objects
+@property (readonly, strong, nonatomic) NSManagedObjectContext * managedObjectContext;
+
+// This is info about our managed objects (what are the attributes,relationships,...)
+@property (readonly, strong, nonatomic) NSManagedObjectModel * managedObjectModel;
+
+// This is what manages the changes that happen in our coredata
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+
+//Method to save our context
+-(void) saveContext;
+-(NSURL *) applicationDocumentsDirectory;
 
 
 @end

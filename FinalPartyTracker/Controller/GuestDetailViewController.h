@@ -10,4 +10,10 @@
 
 @interface GuestDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *textName;
+@property (weak, nonatomic) IBOutlet UITextField *textAge;
+
+- (IBAction)loadFromFile:(id)sender;
+- (IBAction)saveToFile:(id)sender;
+
 @end
