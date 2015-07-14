@@ -126,12 +126,41 @@
 // Called after a person has been selected by the user.
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person NS_AVAILABLE_IOS(8_0) {
     
+    [self displayPerson:person];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Called after the user has pressed cancel.
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) displayPerson : (ABRecordRef)person {
+    
+    // bridge is a gap between objective C and C
+    // ABRecordCopyValue is of CFTyperef object(Core Foundation), whenever we come across these objects we have to interact with C, hence we use bridge.
+    // here, this bridge is known as Toll-Free Bridge
+    NSString * name = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSLog(@"Name Selected is %@", name);
+    
+    NSString * phoneNumber;
+    // we are having more than 1 phone number in our contact list, since accessing more than one value, we must use ABMultiValueRef
+    // here, we are not using bridge, since ABMultivalueRef is actually a CFTyperef
+    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    
+    if (ABMultiValueGetCount(phoneNumbers) > 0) {
+        
+        NSLog(@"User is having a phone number");
+        //here we are trying to access core foundation so we must bridge
+        phoneNumber = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+    }
+    else {
+        
+        NSLog(@"User don't have phone number");
+    }
+    // core foundation is a C object, so garbage collector doesn't see this object, so we must release that by our own
+    CFRelease(phoneNumbers);
 }
 
 - (IBAction)createACalenderEvent:(id)sender {
