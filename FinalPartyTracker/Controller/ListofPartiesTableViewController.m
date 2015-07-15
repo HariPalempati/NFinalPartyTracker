@@ -8,6 +8,7 @@
 
 #import "ListofPartiesTableViewController.h"
 #import "PartyDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface ListofPartiesTableViewController ()
 
@@ -26,21 +27,28 @@
     
     NSLog(@"ViewDidLoad");
     
-    // Creating Parties
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    Party * p1;
-    p1 = [[Party alloc]init];
-    [p1 initWithPartyName:@"BirthDay"];
+    // this is telling us the description what this object is doing(attributes,...)
+    NSEntityDescription * partyDescription = [NSEntityDescription entityForName:@"ManagedParty" inManagedObjectContext:appDel.managedObjectContext];
     
-    Party * p2;
-    p2 = [[Party alloc]init];
-    [p2 initWithPartyName:@"Wedding"];
+    NSManagedObject * party1 = [[NSManagedObject alloc]initWithEntity:partyDescription insertIntoManagedObjectContext:appDel.managedObjectContext];
     
-    Party * p3;
-    p3 = [[Party alloc]init];
-    [p3 initWithPartyName:@"Graduation"];
-    
-    _parties = [[NSMutableArray alloc]initWithObjects:p1, p2, p3 ,nil]; // parties are added to the Array
+//    // Creating Parties
+//    
+//    Party * p1;
+//    p1 = [[Party alloc]init];
+//    [p1 initWithPartyName:@"BirthDay"];
+//    
+//    Party * p2;
+//    p2 = [[Party alloc]init];
+//    [p2 initWithPartyName:@"Wedding"];
+//    
+//    Party * p3;
+//    p3 = [[Party alloc]init];
+//    [p3 initWithPartyName:@"Graduation"];
+//    
+//    _parties = [[NSMutableArray alloc]initWithObjects:p1, p2, p3 ,nil]; // parties are added to the Array
     
     NSLog(@"Parties are added to the Array");
     NSLog(@"Number of Parties are %lu", [_parties count]); // For Arrays we need to use long unsigned as formatt specifier
