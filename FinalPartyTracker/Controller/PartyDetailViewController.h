@@ -16,6 +16,9 @@
 #import <MessageUI/MessageUI.h> // Interacts with Email and Sms
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
+#import "AppDelegate.h"
+#import "ListofPartiesTableViewController.h"
+
 
 @interface PartyDetailViewController : UIViewController <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
 
@@ -31,6 +34,7 @@
 - (IBAction)saveParty:(id)sender;
 - (IBAction)userDidLongPress:(id)sender;
 - (IBAction)userSwipedLeft:(id)sender;
+//- (IBAction)cancelParty:(id)sender;
 
 - (IBAction)sendSms:(id)sender;
 - (IBAction)pickAGuest:(id)sender;
@@ -39,5 +43,6 @@
 - (IBAction)postToTwitter:(id)sender;
 - (IBAction)sendEmail:(id)sender;
 
+ //@property (nonatomic, copy) ListofPartiesTableViewController * aReference1;
 
 @end

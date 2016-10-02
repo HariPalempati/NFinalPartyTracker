@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A99E17ED-DDF2-45B7-BFE6-75EA8666ECA6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>FinalPartyTracker</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CEC8C9D248D7E07C62DDDFE14F413C36A27165CB</key>
 		<string>https://github.com/HariPalempati/NFinalPartyTracker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FinalPartyTracker.xcodeproj</string>
+	<string>FinalPartyTracker.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CEC8C9D248D7E07C62DDDFE14F413C36A27165CB</key>

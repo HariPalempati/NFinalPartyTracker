@@ -8,12 +8,18 @@
 
 #import "PartyDetailViewController.h"
 #import "ListofPartiesTableViewController.h"
+#import "ManagedParty.h"
 
-@interface PartyDetailViewController ()
+@interface PartyDetailViewController () {
+    
+    AppDelegate * appDel;
+}
 
 @end
 
 @implementation PartyDetailViewController
+
+//@synthesize aReference1 =_aReference1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,15 +27,19 @@
     
     //NSLog(@"Name of the party is %@", [_party getPartyName]);
     
-    [self refreshPartyDetails];
+    appDel = [[UIApplication sharedApplication]delegate];
+    
+    //[self getData];
+    
+    //[self refreshPartyDetails];
     
     //[_textName setText: [_party getPartyName]];
 }
 
 -(void) setParty:(Party *)party {
     
-    _party = party;
-    self.title = [party getPartyName];
+//old//    _party = party;
+//    self.title = [party getPartyName];
    // NSLog(@"Name of the party is %@", [_party getPartyName]);
     //[_textName setText: [party getPartyName]]; // faced error since it is showing null, so i thought there might be the timing problem, where this is calling while at that time view has not been loaded, so, i decided to put this in viewdidload (Problem which we face while doing segues)
 
@@ -37,17 +47,64 @@
 
 - (IBAction)saveParty:(id)sender {
     
-    [_party setPartyName:_textName.text];
-    [_party setPartyLocation:_textLocation.text];
-    [_party setPartyTime:_textTime.text];
+    NSManagedObjectContext *context = [self managedObjectContext];
     
-    NSLog(@"Party Created");
+    // Create a new managed object
+    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"ManagedParty" inManagedObjectContext:context];
+    [newDevice setValue:self.textName.text forKey:@"partyName"];
+    [newDevice setValue:self.textTime.text forKey:@"partyTime"];
+    [newDevice setValue:self.textLocation.text forKey:@"partyLocation"];
     
-   // ListofPartiesTableViewController * lp = [[ListofPartiesTableViewController alloc]init];
-    
-    [self.navigationController popViewControllerAnimated:YES]; // sends us to the previous viewcontroller which we come from
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
 }
+//    
+//    ManagedParty * objParty = [NSEntityDescription insertNewObjectForEntityForName:@"ManagedParty" inManagedObjectContext:appDel.managedObjectContext];
+//    
+//    objParty.partyName = _textName.text;
+//    objParty.partyLocation = _textLocation.text;
+//    objParty.partyTime = _textTime.text;
+//    objParty.guests = _labelGuests.text;
+//    
+//    NSError * error;
+//    [appDel.managedObjectContext save:&error];
+//    
+//    if (error == nil) {
+//        
+//         //[self.aReference1.myTableView reloadData];
+//    }
 
+    //old
+//    [_party setPartyName:_textName.text];
+//    [_party setPartyLocation:_textLocation.text];
+//    [_party setPartyTime:_textTime.text];
+//    
+//    NSLog(@"Party Created");
+//    
+//   // ListofPartiesTableViewController * lp = [[ListofPartiesTableViewController alloc]init];
+//    
+//    [self.navigationController popViewControllerAnimated:YES]; // sends us to the previous viewcontroller which we come from
+//}
+
+//- (void) getData {
+//    
+//    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"ManagedParty"];
+//    
+//    NSError * error;
+//    NSArray * result = [appDel.managedObjectContext executeFetchRequest:request error:&error];
+//    
+//    if (error == nil) {
+//        
+////        [self.aReference1.parties removeAllObjects];
+////        [self.aReference1.parties addObjectsFromArray:result];
+////        
+////        [self.aReference1.myTableView reloadData];
+//    }
+//}
+//
 - (IBAction)userDidLongPress:(id)sender {
     
     NSLog(@"Long Press Clicked"); 
@@ -59,6 +116,9 @@
     
     [self performSegueWithIdentifier:@"showGuestList" sender:self]; // when swipped left it navigates to guestlist viewcontroller
 }
+
+//- (IBAction)cancelParty:(id)sender {
+//}
 
 // sending SMS and using its delegate protocols methods
 - (IBAction)sendSms:(id)sender {
@@ -200,14 +260,14 @@
 
 
 
--(void) refreshPartyDetails {
-    
-    NSLog(@"Name of the party is %@", [_party getPartyName]);
-    [_textName setText: [_party getPartyName]];
-    [_textLocation setText: [_party getPartyLocation]];
-    [_textTime setText: [_party getPartyTime]];
-}
-
+//-(void) refreshPartyDetails {
+//    
+//    NSLog(@"Name of the party is %@", [_party getPartyName]);
+//    [_textName setText: [_party getPartyName]];
+//    [_textLocation setText: [_party getPartyLocation]];
+//    [_textTime setText: [_party getPartyTime]];
+//}
+//
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -222,5 +282,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+//- (IBAction)cancelParty:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+//
+//- (IBAction)saveParty:(id)sender {
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    // Create a new managed object
+//    NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"ManagedParty" inManagedObjectContext:context];
+//    [newDevice setValue:self.textName.text forKey:@"PartyName"];
+//    [newDevice setValue:self.textTime.text forKey:@"PartyTime"];
+//    [newDevice setValue:self.textLocation.text forKey:@"PartyLocation"];
+//    
+//    NSError *error = nil;
+//    // Save the object to persistent store
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//    }
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 @end

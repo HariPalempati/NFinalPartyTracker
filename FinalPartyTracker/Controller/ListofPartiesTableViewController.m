@@ -10,15 +10,25 @@
 #import "PartyDetailViewController.h"
 #import "AppDelegate.h"
 
-@interface ListofPartiesTableViewController ()
+@interface ListofPartiesTableViewController ()  {
+    
+    AppDelegate * appDel;
+}
 
 @end
 
 @implementation ListofPartiesTableViewController
 
+@synthesize myTableView = _myTableView;
+
+//@synthesize aReference =_aReference;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    appDel = [[UIApplication sharedApplication]delegate];
     
+    //[self getData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -27,13 +37,13 @@
     
     NSLog(@"ViewDidLoad");
     
-    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    // this is telling us the description what this object is doing(attributes,...)
-    NSEntityDescription * partyDescription = [NSEntityDescription entityForName:@"ManagedParty" inManagedObjectContext:appDel.managedObjectContext];
-    
-    NSManagedObject * party1 = [[NSManagedObject alloc]initWithEntity:partyDescription insertIntoManagedObjectContext:appDel.managedObjectContext];
-    
+//    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    
+//    // this is telling us the description what this object is doing(attributes,...)
+//    NSEntityDescription * partyDescription = [NSEntityDescription entityForName:@"ManagedParty" inManagedObjectContext:appDel.managedObjectContext];
+//    
+//    NSManagedObject * party1 = [[NSManagedObject alloc]initWithEntity:partyDescription insertIntoManagedObjectContext:appDel.managedObjectContext];
+//    
 //    // Creating Parties
 //    
 //    Party * p1;
@@ -58,6 +68,56 @@
 
 }
 
+//- (IBAction)saveParty:(id)sender {
+//    
+//    ManagedParty * objParty = [NSEntityDescription insertNewObjectForEntityForName:@"ManagedParty" inManagedObjectContext:appDel.managedObjectContext];
+//    
+//    objParty.partyName = _textName.text;
+//    objParty.partyLocation = _textLocation.text;
+//    objParty.partyTime = _textTime.text;
+//    objParty.guests = _labelGuests.text;
+//    
+//    NSError * error;
+//    [appDel.managedObjectContext save:&error];
+//    
+//    if (error == nil) {
+//        
+//        [_myTableView reloadData];
+//        //[self.aReference1.myTableView reloadData];
+//    }
+//    
+//    //old
+//    //    [_party setPartyName:_textName.text];
+//    //    [_party setPartyLocation:_textLocation.text];
+//    //    [_party setPartyTime:_textTime.text];
+//    //
+//    //    NSLog(@"Party Created");
+//    //
+//    //   // ListofPartiesTableViewController * lp = [[ListofPartiesTableViewController alloc]init];
+//    //
+//    //    [self.navigationController popViewControllerAnimated:YES]; // sends us to the previous viewcontroller which we come from
+//}
+//- (void) getData {
+//    
+//    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"ManagedParty"];
+//    
+//    NSError * error;
+//    NSArray * result = [appDel.managedObjectContext executeFetchRequest:request error:&error];
+//    
+//    if (error == nil) {
+//        
+//        [_parties removeAllObjects];
+//        [_parties addObjectsFromArray:result];
+//        
+//        [_myTableView reloadData];
+//        
+//        //        [self.aReference1.parties removeAllObjects];
+//        //        [self.aReference1.parties addObjectsFromArray:result];
+//        //
+//        //        [self.aReference1.myTableView reloadData];
+//    }
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -78,14 +138,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    NSString * celltext;
-    celltext = [[_parties objectAtIndex:indexPath.row] getPartyName]; //iterates everytime, gets to the new row and it gets value from getter (this method will call everytime for every cell)
-    NSLog(@"cell text is %@", celltext);
-    [[cell textLabel] setText:celltext]; // we need to enter reuseidentity in storyboard, then only this works (identity here is "cell")
-    //[cell se]
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+  
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    }
+    
+    ManagedParty * objParty = [[ManagedParty alloc]init];
+    
+    cell.textLabel.text = objParty.partyName;
+    
+    //old
+//    // Configure the cell...
+//    NSString * celltext;
+//    celltext = [[_parties objectAtIndex:indexPath.row] getPartyName]; //iterates everytime, gets to the new row and it gets value from getter (this method will call everytime for every cell)
+//    NSLog(@"cell text is %@", celltext);
+//    [[cell textLabel] setText:celltext]; // we need to enter reuseidentity in storyboard, then only this works (identity here is "cell")
+//    //[cell se]
     
     
     return cell;
@@ -143,11 +214,41 @@
         vc.party = p;
         
     }
+    
+    if ([[segue identifier] isEqual:@"newParty"]) {
+        
+        PartyDetailViewController * vc = segue.destinationViewController; 
+    }
 }
+
+
 
 -(IBAction)unwindFromPartyDetail:(UIStoryboardSegue*)segue {
     
     PartyDetailViewController * vc = segue.sourceViewController;
+}
+
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ManagedParty"];
+    self.parties = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
 }
 
 @end
